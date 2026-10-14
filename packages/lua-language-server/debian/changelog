@@ -1,0 +1,5 @@
+lua-language-server (3.19.1-0~zlkn1) forky; urgency=medium
+
+  * Repackage upstream release 3.19.1.
+
+ -- zolkin.u.a <zolkin.u.a@gmail.com>  Tue, 13 Oct 2026 21:23:11 +0300

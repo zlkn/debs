@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+DEST := debian/lua-language-server/usr/lib/lua-language-server
+
+%:
+	dh $@
+
+override_dh_auto_build:
+
+override_dh_auto_install:
+	mkdir -p $(DEST)
+	cp -a bin locale meta script main.lua debugger.lua changelog.md $(DEST)/
+	install -D -m 755 debian/lua-language-server.sh debian/lua-language-server/usr/bin/lua-language-server
+
+override_dh_strip:
+
+override_dh_dwz:

@@ -1,0 +1,17 @@
+Source: lua-language-server
+Section: devel
+Priority: optional
+Maintainer: zolkin.u.a <zolkin.u.a@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.2
+Homepage: https://github.com/LuaLS/lua-language-server
+Rules-Requires-Root: no
+
+Package: lua-language-server
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Language Server Protocol implementation for Lua
+ Language server for Lua implementing the Language Server Protocol:
+ completion, diagnostics, hover, go to definition, rename and formatting.
+ .
+ Repackaged upstream binary release.
