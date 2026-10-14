@@ -5,3 +5,4 @@
 tfplan
 build/
 dist/
+signing-key.asc
