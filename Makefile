@@ -3,7 +3,10 @@ export
 
 TF := terraform -chdir=infra
 
-.PHONY: tf/init tf/plan tf/apply
+tf/%: export CLOUDFLARE_API_TOKEN = $(TF_CLOUDFLARE_API_TOKEN)
+repo/%: export CLOUDFLARE_API_TOKEN = $(WRANGLER_CLOUDFLARE_API_TOKEN)
+
+.PHONY: tf/init tf/plan tf/apply key
 
 tf/init:
 	$(TF) init
@@ -16,3 +19,6 @@ tf/apply:
 
 pkg/%:
 	./scripts/build.sh $*
+
+key:
+	./scripts/gen-key.sh
