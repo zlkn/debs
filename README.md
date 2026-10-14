@@ -31,7 +31,7 @@ flowchart LR
     pages -.->|".deb download links"| aptdomain
 ```
 
-`infra/` manages both buckets, both domains and the Pages project with Terraform.
+`infra/` manages both buckets, both domains, the Pages project, a cache rule for `pool/` and a rate limit for the apt paths with Terraform.
 
 ## Build and publish
 
@@ -75,7 +75,7 @@ Secrets live in `.env`, which `make` loads automatically and git ignores:
 
 | Variable | Used by | Permissions |
 |---|---|---|
-| `TF_CLOUDFLARE_API_TOKEN` | `tf/*` | Account: Workers R2 Storage Edit, Cloudflare Pages Edit; Zone `zlkn.cc`: Zone Read, DNS Edit |
+| `TF_CLOUDFLARE_API_TOKEN` | `tf/*` | Account: Workers R2 Storage Edit, Cloudflare Pages Edit; Zone `zlkn.cc`: Zone Read, DNS Edit, Cache Rules Edit, Zone WAF Edit |
 | `PAGES_CLOUDFLARE_API_TOKEN` | `web/deploy` | Account: Cloudflare Pages Edit |
 | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` | `repo/*` | R2 token: Object Read & Write on bucket `debs` |
 | `CLOUDFLARE_ACCOUNT_ID` | `repo/*`, `web/deploy` | |
